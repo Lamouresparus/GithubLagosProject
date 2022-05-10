@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Github Hub</string>
+    <string name="profile_image">Profile image</string>
+    <string name="see_on_github">see on Github</string>
+
+
+    <plurals name="followers">
+        <item quantity="one">Follower</item>
+        <item quantity="other">Followers</item>
+    </plurals>
+</resources>

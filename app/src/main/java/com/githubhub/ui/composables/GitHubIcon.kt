@@ -5,6 +5,7 @@ import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.githubhub.R
@@ -20,6 +21,9 @@ fun GitHubIcon(
         painter = painterResource(id = R.drawable.ic_github_svgrepo_com),
         contentDescription = stringResource(id = R.string.see_on_github),
         modifier = Modifier
+            .testTag(
+                stringResource(R.string.github_icon_test_tag)
+            )
             .clickable {
                 uriHandler.openUri(uri)
             }

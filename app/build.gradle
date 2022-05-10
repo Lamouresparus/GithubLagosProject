@@ -84,7 +84,10 @@ dependencies {
     testImplementation 'app.cash.turbine:turbine:0.8.0'
     testImplementation "io.mockk:mockk:1.12.3"
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
-
+    // Test rules and transitive dependencies:
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+// Needed for createComposeRule, but not createAndroidComposeRule:
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
 
 
 }

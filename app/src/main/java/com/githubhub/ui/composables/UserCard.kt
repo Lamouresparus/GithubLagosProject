@@ -13,19 +13,25 @@ import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.githubhub.R
 import com.githubhub.ui.CircularImage
 import com.githubhub.ui.PrimaryText
 import com.githubhub.ui.model.User
 
 @Composable
-fun UserCard(user: User, onClick: () -> Unit) {
+fun UserCard(user: User, onClick: (String) -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(8.dp)
-            .clickable { onClick() }
+            .testTag(
+                stringResource(R.string.test_tag_user_card)
+            )
+            .clickable { onClick(user.username) }
     ) {
         Row(Modifier.align(Alignment.CenterStart)) {
             CircularImage(

@@ -13,12 +13,15 @@ This application was created for my case study as a process in my application to
 -  Retrofit - HTTP Request
 -  Kotlin Coroutines  - for asynchronous tasks
 -  Coil - image loading
--  MockK - mocking
+-  MockK - creating mocks for tests
 -  Turbine - testing coroutines Flow
 
 ## Installation
 1. Download the file or clone the repo and
 2. Open it in Android Studio
+
+### Note 
+Making multiple sucessive API calls may lead to a 403 error. This is caused by Github’s rate limiting. Authenticated requests get a higher rate limit. Check out the documentation for more details https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting .
 
 
 ## Architecture and Design
@@ -43,9 +46,10 @@ I used Model View View-Model (MVVM), repository pattern, and clean architecture.
 I experienced some difficulties abstracting the navigation implementation and injecting it using hilt.
 
 ## Resources
-https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/
-https://www.answertopia.com/jetpack-compose/screen-navigation-in-jetpack-compose/
-https://medium.com/google-developer-experts/navigating-in-jetpack-compose-78c78d365c6a
-https://github.com/cashapp/turbine
-https://codingwithmohit.com/coroutines/learning-shared-and-state-flows-with-tests/
-https://fabiosanto.medium.com/unit-testing-coroutines-state-flow-c6e6de580027
+- https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/
+- https://www.answertopia.com/jetpack-compose/screen-navigation-in-jetpack-compose/
+- https://medium.com/google-developer-experts/navigating-in-jetpack-compose-78c78d365c6a
+- https://github.com/cashapp/turbine
+- https://codingwithmohit.com/coroutines/learning-shared-and-state-flows-with-tests/
+- https://fabiosanto.medium.com/unit-testing-coroutines-state-flow-c6e6de580027
+- https://developer.android.com/jetpack/compose/testing 

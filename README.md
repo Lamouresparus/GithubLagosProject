@@ -3,8 +3,7 @@ GitHub Hub is an Android application that fetches a list of GitHub users from th
 This application was created for my case study as a process in my application to join Trivago as a Junior Android developer.
 
 ## Screenshot
-<img width="328" alt="Screenshot 2022-05-10 at 14 06 34" src="https://user-images.githubusercontent.com/34775925/167646829-f6c5e7c8-43a6-450d-9803-8cbc197a1a34.png">
-<img width="337" alt="Screenshot 2022-05-10 at 14 06 21" src="https://user-images.githubusercontent.com/34775925/167646856-30d2f5af-33a5-4bc1-bfd4-159996268915.png">
+<img width="337" alt="Screenshot 2022-05-10 at 14 06 34" src="https://user-images.githubusercontent.com/34775925/167648106-83720823-2cb6-4327-b57e-fe7f094a6ca0.png"> <img width="337" alt="Screenshot 2022-05-10 at 14 06 21" src="https://user-images.githubusercontent.com/34775925/167650890-6f95fc9a-6da6-471d-97b7-674a96352724.png">
 
 
 ## Libraries used:

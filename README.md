@@ -35,6 +35,8 @@ I used Model View View-Model (MVVM), repository pattern, and clean architecture.
 3. Multi Modules: Currently there is only one module that manages everything. We can add more modules that would help extract all the layers and features into their separate module. While this might be cumbersome, it has huge benefits such as increased build times, separation of concerns, etc.
 4. UX: The app can capture more user content and notify user's internet availability
 5. Unit Test: A higher test coverage would be nice to have
+6. Pagination: Currently, the user can only scroll through 30 items on the list. Implementing pagination would load more items to the screen when the user scrolls to the end of the current list.
+
 
 
 ## Challenges

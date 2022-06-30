@@ -1,6 +1,6 @@
 # GitHub Hub
 GitHub Hub is an Android application that fetches a list of GitHub users from the GitHub API (Application Programming Interface). The app has two screens List and Detail, built using modern Android development libraries. Clicking on the GitHub icon on both screens opens the user profile on a web browser.
-This application was created for my case study as a process in my application to join Trivago as a Junior Android developer.
+This application was created for my case study as a process in my application to join Oze as an Android developer.
 
 ## Screenshot
 <img width="337" alt="Screenshot 2022-05-10 at 14 06 34" src="https://user-images.githubusercontent.com/34775925/167648106-83720823-2cb6-4327-b57e-fe7f094a6ca0.png"> <img width="337" alt="Screenshot 2022-05-10 at 14 06 21" src="https://user-images.githubusercontent.com/34775925/167650890-6f95fc9a-6da6-471d-97b7-674a96352724.png">

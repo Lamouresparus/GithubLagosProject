@@ -1,5 +1,5 @@
 # GitHub Hub
-GitHub Hub is an Android application that fetches a list of GitHub users from the GitHub API (Application Programming Interface). The app has two screens List and Detail, built using modern Android development libraries. Clicking on the GitHub icon on both screens opens the user profile on a web browser.
+GitHub Lagos is an Android application that fetches a list of GitHub users from the GitHub API (Application Programming Interface). The app has two screens List and Detail, built using modern Android development libraries. Clicking on the GitHub icon on both screens opens the user profile on a web browser.
 This application was created for my case study as a process in my application to join Oze as an Android developer.
 
 ## Screenshot

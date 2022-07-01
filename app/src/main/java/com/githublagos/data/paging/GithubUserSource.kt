@@ -3,8 +3,8 @@ package com.githublagos.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.githublagos.data.mappers.mapToDomain
-import com.githublagos.data.model.UserRemote
 import com.githublagos.data.remote.GithubApi
+import com.githublagos.data.constants.Constants.PAGE_SIZE
 import com.githublagos.domain.model.UserDomain
 import retrofit2.HttpException
 import java.io.IOException
@@ -21,11 +21,11 @@ class GithubUserSource @Inject constructor(private val api: GithubApi) :
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UserDomain> {
         return try {
             val nextPage = params.key ?: 1
-            val userList = api.getUsers(page = nextPage).map { it.mapToDomain() }
+            val userList = api.getUsers(page = nextPage, pageSize = PAGE_SIZE).items.map { it.mapToDomain() }
             LoadResult.Page(
                 data = userList,
                 prevKey = if (nextPage == 1) null else nextPage - 1,
-                nextKey = if (userList.isEmpty()) null else nextPage + 3
+                nextKey = if (userList.isEmpty()) null else nextPage + 1
             )
         } catch (exception: IOException) {
             return LoadResult.Error(exception)

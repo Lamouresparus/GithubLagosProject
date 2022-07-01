@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import com.githublagos.data.mappers.mapToDomain
 import com.githublagos.data.paging.GithubUserSource
 import com.githublagos.data.remote.GithubApi
+import com.githublagos.data.constants.Constants.PAGE_SIZE
 import com.githublagos.domain.GithubUserRepository
 import com.githublagos.domain.model.UserDetailDomain
 import com.githublagos.domain.model.UserDomain
@@ -19,7 +20,7 @@ class GithubUserRepositoryImpl @Inject constructor(
     GithubUserRepository {
     override suspend fun getUsers(): Flow<PagingData<UserDomain>> {
         val config = PagingConfig(
-            pageSize = 20,
+            pageSize = PAGE_SIZE,
             enablePlaceholders = true,
             prefetchDistance = 5
         )

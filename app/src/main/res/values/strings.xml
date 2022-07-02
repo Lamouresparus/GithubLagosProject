@@ -2,9 +2,12 @@
     <string name="app_name">Github Lagos</string>
     <string name="profile_image">Profile image</string>
     <string name="see_on_github">see on Github</string>
+    <string name="add_to_favourites">Add to Favourites</string>
+    <string name="remove_from_favourites">Remove From Favourites</string>
     <string name="test_tag_circular_progress">progress_bar_test_tag</string>
     <string name="test_tag_user_card">user card</string>
     <string name="error_test_tag">error_test_tag</string>
+    <string name="fav_error_test_tag">fav_error_test_tag</string>
     <string name="github_icon_test_tag">github_icon_test_tag</string>
 
 

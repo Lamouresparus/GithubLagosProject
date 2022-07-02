@@ -6,5 +6,6 @@ object Constants {
     const val USERS = "users"
     const val QUERY_LOCATION = "location:lagos"
     const val PAGE_SIZE = 20
+    const val TABLE_NAME = "favourites"
 
 }

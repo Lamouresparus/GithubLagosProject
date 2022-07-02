@@ -26,3 +26,24 @@ fun UserDomain.toUiModel(): User {
         githubUrl = githubUrl
     )
 }
+
+fun UserDetail.mapToDomain(): UserDetailDomain {
+    return UserDetailDomain(
+        username = username,
+        avatarUrl = avatarUrl,
+        githubUrl = githubUrl,
+        name = name,
+        location = location,
+        followers = followers,
+        following = following,
+        repos = repos,
+        bio = bio
+    )
+}
+
+
+fun UserDetailDomain.mapToUser() = User(
+    username = username,
+    avatarUrl = avatarUrl,
+    githubUrl = githubUrl
+)

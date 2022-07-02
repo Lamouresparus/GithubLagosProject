@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.githublagos.ui.favourite.FavouriteList
 import com.githublagos.ui.navigation.Screen
 import com.githublagos.ui.user_detail.UserDetail
 import com.githublagos.ui.users.UsersList
@@ -18,6 +19,9 @@ fun App() {
             UsersList(navController)
         }
 
+        composable(Screen.Favourite.route){
+            FavouriteList(navController)
+        }
         composable(Screen.Detail.route){
             val userLogin = it.arguments?.getString("username") ?: ""
             UserDetail(userLogin)

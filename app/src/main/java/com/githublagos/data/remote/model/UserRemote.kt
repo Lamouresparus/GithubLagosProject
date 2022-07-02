@@ -1,4 +1,4 @@
-package com.githublagos.data.model
+package com.githublagos.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

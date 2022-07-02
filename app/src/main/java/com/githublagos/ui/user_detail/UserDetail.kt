@@ -1,21 +1,19 @@
 package com.githublagos.ui.user_detail
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -34,6 +32,7 @@ fun UserDetail(
 ) {
 
     val uiState = viewModel.uiState.collectAsState()
+    val isFavourite = viewModel.isFavourite.collectAsState()
 
 
     LaunchedEffect(key1 = 2) {
@@ -54,7 +53,11 @@ fun UserDetail(
 
             is UserDetailViewModel.UiState.Loaded -> {
                 val userDetail = state.userDetail
-                UserDetailScreen(user = userDetail)
+                UserDetailScreen(user = userDetail, isFavourite) {
+                    viewModel.addOrRemoveFromFavourite(
+                        userDetail
+                    )
+                }
             }
 
             is UserDetailViewModel.UiState.Error -> {
@@ -66,7 +69,7 @@ fun UserDetail(
 }
 
 @Composable
-fun UserDetailScreen(user: UserDetail) {
+fun UserDetailScreen(user: UserDetail, isFavourite: State<Boolean>, onButtonClick: () -> Unit) {
 
     Box(
         Modifier
@@ -98,7 +101,10 @@ fun UserDetailScreen(user: UserDetail) {
 
             Row(horizontalArrangement = Arrangement.SpaceAround) {
 
-                PrimaryText(text = "${user.followers} follower".getPlural(user.followers), textSize = 12.sp)
+                PrimaryText(
+                    text = "${user.followers} follower".getPlural(user.followers),
+                    textSize = 12.sp
+                )
 
                 Spacer(modifier = Modifier.width(4.dp))
 
@@ -106,7 +112,10 @@ fun UserDetailScreen(user: UserDetail) {
 
                 Spacer(modifier = Modifier.width(4.dp))
 
-                PrimaryText(text = "following ${user.following} user".getPlural(user.following), textSize = 12.sp)
+                PrimaryText(
+                    text = "following ${user.following} user".getPlural(user.following),
+                    textSize = 12.sp
+                )
 
                 Spacer(modifier = Modifier.width(4.dp))
 
@@ -114,7 +123,10 @@ fun UserDetailScreen(user: UserDetail) {
 
                 Spacer(modifier = Modifier.width(4.dp))
 
-                PrimaryText(text = "${user.repos} public repo".getPlural(user.repos), textSize = 12.sp)
+                PrimaryText(
+                    text = "${user.repos} public repo".getPlural(user.repos),
+                    textSize = 12.sp
+                )
 
             }
             Spacer(modifier = Modifier.height(8.dp))
@@ -127,6 +139,21 @@ fun UserDetailScreen(user: UserDetail) {
             Spacer(modifier = Modifier.height(16.dp))
 
             PrimaryText(text = user.bio, textSize = 14.sp)
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            TextButton(
+                onClick = onButtonClick, modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+                    .background(Color.Black)
+                    .clip(RoundedCornerShape(4.dp))
+            ) {
+                Text(
+                    text = stringResource(id = if (isFavourite.value) R.string.remove_from_favourites else R.string.add_to_favourites),
+                    color = Color.White
+                )
+            }
 
         }
     }

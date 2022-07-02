@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
@@ -85,11 +86,18 @@ dependencies {
     // test
     testImplementation 'app.cash.turbine:turbine:0.8.0'
     testImplementation "io.mockk:mockk:1.12.3"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+
 
     // Test rules and transitive dependencies:
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-// Needed for createComposeRule, but not createAndroidComposeRule:
+    // Needed for createComposeRule, but not createAndroidComposeRule:
     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+
+    //Room
+    implementation("androidx.room:room-ktx:2.4.2")
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
+
 
 
 }

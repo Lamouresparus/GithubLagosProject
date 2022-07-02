@@ -1,4 +1,4 @@
-package com.githublagos.data.paging
+package com.githublagos.data.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

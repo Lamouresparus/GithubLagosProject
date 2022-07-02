@@ -1,13 +1,14 @@
 package com.githublagos.ui.users
 
+import androidx.paging.PagingData
 import app.cash.turbine.test
 import com.githublagos.domain.Result
 import com.githublagos.domain.model.UserDomain
 import com.githublagos.domain.usecase.GetGitHubUsers
-import com.githublagos.ui.mappers.toUiModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Test
@@ -22,7 +23,20 @@ class UsersViewModelTest {
     @Test
     fun `Users Fetched successfully - correct state emitted `() = runTest {
 
-        val users = listOf(UserDomain("love", "image", "github.com/lamoure"))
+        val users = flow {
+            emit(
+                PagingData.from(
+                    listOf(
+                        UserDomain(
+                            "love",
+                            "image",
+                            "github.com/lamoure"
+                        )
+                    )
+                )
+            )
+        }
+
         coEvery { getGitHubUsers.execute() } returns Result.Success(users)
 
         sut.uiState.test {
@@ -31,11 +45,10 @@ class UsersViewModelTest {
             Assert.assertEquals(UsersViewModel.UiState.Loading, awaitItem())
 
 
-            val expected = users.map { it.toUiModel() }
             val content = awaitItem()
 
-            Assert.assertEquals(UsersViewModel.UiState.Loaded(expected), content)
-            Assert.assertEquals("love",(content as UsersViewModel.UiState.Loaded).users.first().username)
+            Assert.assertEquals(UsersViewModel.UiState.Loaded(users), content)
+
             cancelAndConsumeRemainingEvents()
         }
 

@@ -3,8 +3,8 @@ package com.githublagos.data.remote
 import com.githublagos.data.constants.Constants.QUERY_LOCATION
 import com.githublagos.data.constants.Constants.SEARCH
 import com.githublagos.data.constants.Constants.USERS
-import com.githublagos.data.model.UserDetailRemote
-import com.githublagos.data.model.UsersResponseModel
+import com.githublagos.data.remote.model.UserDetailRemote
+import com.githublagos.data.remote.model.UsersResponseModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

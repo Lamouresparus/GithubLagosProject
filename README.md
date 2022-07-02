@@ -1,5 +1,5 @@
 # GitHub Lagos
-GitHub Lagos is an Android application that fetches a list of GitHub users from the GitHub API (Application Programming Interface). The app has two screens List and Detail, built using modern Android development libraries. Clicking on the GitHub icon on both screens opens the user profile on a web browser.
+GitHub Lagos is an Android application that fetches a list of GitHub users in Lagos from the GitHub API (Application Programming Interface). The app has three screens List, Favourites, and Detail, built using modern Android development libraries. Clicking on the GitHub icon on both screens opens the user profile on a web browser.
 This application was created for my case study as a process in my application to join Oze as an Android developer.
 
 ## Screenshot
@@ -15,13 +15,14 @@ This application was created for my case study as a process in my application to
 -  Coil - image loading
 -  MockK - creating mocks for tests
 -  Turbine - testing coroutines Flow
+-  Room - saving data to local storage
 
 ## Installation
 1. Download the file or clone the repo and
 2. Open it in Android Studio
 
 ### Note 
-Making multiple sucessive API calls may lead to a 403 error. This is caused by Github’s rate limiting. Authenticated requests get a higher rate limit. Check out the documentation for more details https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting .
+Making multiple sucessive API calls may lead to a 403 error. This is caused by Github’s rate limiting. Authenticated requests get a higher rate limit. Check out the documentation for more details https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting.
 
 
 ## Architecture and Design
@@ -34,16 +35,14 @@ I used Model View View-Model (MVVM), repository pattern, and clean architecture.
 
 ## Improvements
 1. Navigation: Abstracting navigation implementation into a separate class. This gives the desired flexibility because it is easily injectable into the ViewModel, thereby delegating calls to the navigator from the ViewModel.
-2. Local Source using Room: Adding a local source would improve the User Experience(UX) of the application. Users can always have content displayed when they use the app for a second time or maybe when they have no internet connection.
-3. Multi Modules: Currently there is only one module that manages everything. We can add more modules that would help extract all the layers and features into their separate module. While this might be cumbersome, it has huge benefits such as increased build times, separation of concerns, etc.
-4. UX: The app can capture more user content and notify user's internet availability
-5. Unit Test: A higher test coverage would be nice to have
-6. Pagination: Currently, the user can only scroll through 30 items on the list. Implementing pagination would load more items to the screen when the user scrolls to the end of the current list.
-
+2. Multi Modules: Currently there is only one module that manages everything. We can add more modules that would help extract all the layers and features into their separate module. While this might be cumbersome, it has huge benefits such as increased build times, separation of concerns, etc.
+3. UX: The app can capture more user content and notify user's internet availability.
+4. Unit Test: A higher test coverage would be nice to have.
 
 
 ## Challenges
-I experienced some difficulties abstracting the navigation implementation and injecting it using hilt.
+1. I experienced some difficulties abstracting the navigation implementation and injecting it using hilt.
+2. I experienced difficulty, implementing pagination in compose with Rx Java.
 
 ## Resources
 - https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/
@@ -53,3 +52,4 @@ I experienced some difficulties abstracting the navigation implementation and in
 - https://codingwithmohit.com/coroutines/learning-shared-and-state-flows-with-tests/
 - https://fabiosanto.medium.com/unit-testing-coroutines-state-flow-c6e6de580027
 - https://developer.android.com/jetpack/compose/testing 
+- https://proandroiddev.com/infinite-lists-with-paging-3-in-jetpack-compose-b095533aefe6
